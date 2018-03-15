@@ -1,10 +1,11 @@
 {
-  "name": "nodeandjohnnyfive",
+  "name": "porte-loco",
   "version": "0.0.1",
-  "scripts":{
+  "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "johnny-five": "^0.11.7"
+    "johnny-five": "^0.11.7",
+    "serialport": "^6.1.1"
   }
 }
