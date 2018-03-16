@@ -10,7 +10,13 @@ board.on("ready", function(){
     });
     let nbPorteOuverte = 0;
     button.on("up", function(){
-        http.get(config.remoteUrl + "?date=" + new Date());
+        http.get(config.remoteUrl + "?date=" + new Date(), function(resp){
+            resp.on('end', function(){
+                console.log('request sent')
+            });
+        }).on('error', function(){
+            console.log('error sending request')
+        });
         nbPorteOuverte++;
         console.log("la porte s'est ouverte " + nbPorteOuverte + " fois")
     });
