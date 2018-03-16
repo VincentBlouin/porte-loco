@@ -9,6 +9,8 @@ board.on("ready", function(){
         button:button
     });
     let nbPorteOuverte = 0;
+    console.log(config.remoteUrl);
+    console.log(http);
     button.on("up", function(){
         http.get(config.remoteUrl + "?date=" + new Date(), function(resp){
             resp.on('end', function(){
