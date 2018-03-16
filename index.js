@@ -17,6 +17,8 @@ board.on("ready", function(){
             });
         }).on('error', function(){
             console.log('error sending request')
+        }).on('end', function(){
+            console.log('request sent')
         });
         nbPorteOuverte++;
         console.log("la porte s'est ouverte " + nbPorteOuverte + " fois")
