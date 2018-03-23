@@ -31,8 +31,12 @@ if (isset($_GET["date"])) {
 echo "résultats\n";
 //echo ($redis->exists('doorDates')) ? "Oui" : "please populate the message key";
 //print_r($redis->lpop);
+$redis->rpush("aList", "poire");
 print_r(
     $redis->lpop("doorDates")
+);
+print_r(
+    $redis->lpop("aList")
 );
 $redis->set('testMessage', 'Hello world');
 print_r(
