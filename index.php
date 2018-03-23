@@ -33,7 +33,7 @@ echo "résultats\n";
 //print_r($redis->lpop);
 //$redis->rpush("aList", "poire");
 print_r(
-    $redis->get("doorDates")
+    $redis->lrange("doorDates", 0, -1)
 );
 //print_r(
 //    $redis->lpop("aList")
