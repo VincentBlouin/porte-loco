@@ -12,7 +12,7 @@ board.on("ready", function () {
     button.on("up", function () {
         http.get({
             host: config.remoteHost,
-            path: encodeURI('index.php?date=' + new Date())
+            path: encodeURI('/index.php?date=' + new Date())
         }, (resp) => {
             //resp.on('data'... is mandatory for resp.on('end'... to happen
             resp.on("data", function (chunk) {
@@ -29,11 +29,11 @@ board.on("ready", function () {
 });
 console.log("connecting porte-loco");
 
-console.log(encodeURI('index.php?date=' + new Date()));
+console.log(encodeURI('/index.php?date=' + new Date()));
 
 // http.get({
 //     host: config.remoteHost,
-//     path: encodeURI('index.php?date=' + new Date())
+//     path: encodeURI('/index.php?date=' + new Date())
 // }, (resp) => {
 //     //resp.on('data'... is mandatory for resp.on('end'... to happen
 //     resp.on("data", function (chunk) {
