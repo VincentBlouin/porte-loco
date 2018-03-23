@@ -3,7 +3,7 @@ const board = new five.Board();
 const http = require('http');
 const config = require('./config.json');
 board.on("ready", function () {
-    console.log("Board ready");
+    console.log("Board ready" + new Date());
     const button = new five.Button(2);
     board.repl.inject({
         button: button
