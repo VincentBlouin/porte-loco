@@ -17,7 +17,7 @@ try {
     die($e->getMessage());
 }
 if (isset($_GET["date"])) {
-    $redis->rpush("doorDates", htmlspecialchars($_GET["date"]));
+    $redis->rpush("doorDates", $_GET["date"]);
     header("HTTP/1.1 200 OK");
     die();
 }
