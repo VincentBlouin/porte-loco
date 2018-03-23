@@ -28,24 +28,9 @@ if (isset($_GET["date"])) {
 </head>
 <body>
 <?php
-echo "résultats\n";
-//echo ($redis->exists('doorDates')) ? "Oui" : "please populate the message key";
-//print_r($redis->lpop);
-//$redis->rpush("aList", "poire");
 print_r(
     $redis->lrange("doorDates", 0, -1)
 );
-//print_r(
-//    $redis->lpop("aList")
-//);
-//$redis->set('testMessage', 'Hello world');
-//print_r(
-//    $redis->keys("*")
-//);
-
-//echo $redis->get("testMessage")
-
-//echo "fin résultats"
 ?>
 </body>
 </html>
