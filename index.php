@@ -2,7 +2,7 @@
 require "predis/autoload.php";
 Predis\Autoloader::register();
 try {
-    $redis = new PredisClient();
+    $redis = new Predis\Client();
 
     // This connection is for a remote server
     /*
