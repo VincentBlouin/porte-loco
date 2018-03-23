@@ -34,12 +34,12 @@ echo "résultats\n";
 print_r(
     $redis->lpop("doorDates")
 );
-$redis->set('testmessage', 'Hello world');
+$redis->set('testMessage', 'Hello world');
 print_r(
     $redis->keys("*")
 );
 
-echo $redis->get("testmessage")
+echo $redis->get("testMessage")
 
 //echo "fin résultats"
 ?>
