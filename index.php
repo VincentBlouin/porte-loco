@@ -17,7 +17,7 @@ try {
     header("HTTP/1.1 500 INTERNAL ERROR");
     die($e->getMessage());
 }
-if ($_GET["date"]) {
+if (isset($_GET["date"])) {
     $redis->rpush("doorDates", htmlspecialchars($_GET["date"]));
 } else {
     echo $redis->lpop("doorDates");
