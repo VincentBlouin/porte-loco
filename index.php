@@ -29,7 +29,9 @@ if (isset($_GET["date"])) {
 <body>
 <?php
 echo "résultats";
-echo $redis->lpop("doorDates");
+print_r(
+    $redis->lpop("doorDates")
+);
 ?>
 </body>
 </html>
