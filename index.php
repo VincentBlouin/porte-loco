@@ -28,12 +28,13 @@ if (isset($_GET["date"])) {
 </head>
 <body>
 <?php
-echo "résultats";
-print_r($redis->lpop);
+echo "résultats\n";
+echo ($redis->exists('doorDates')) ? "Oui" : "please populate the message key";
+//print_r($redis->lpop);
 print_r(
     $redis->lpop("doorDates")
 );
-echo "fin résultats"
+//echo "fin résultats"
 ?>
 </body>
 </html>
