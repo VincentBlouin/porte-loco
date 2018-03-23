@@ -1,6 +1,6 @@
 <?php
 require "predis/autoload.php";
-PredisAutoloader::register();
+Predis\Autoloader::register();
 try {
     $redis = new PredisClient();
 
