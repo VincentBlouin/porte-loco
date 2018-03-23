@@ -11,16 +11,21 @@ board.on("ready", function () {
     let nbPorteOuverte = 0;
     console.log(config.remoteUrl);
     button.on("up", function () {
-        http.get(config.remoteUrl + "?date=" + new Date(), (resp) => {
+        http.get({
+            host: config.remoteHost,
+            path: encodeURI('index.php?date=' + new Date())
+        }, (resp) => {
+            //resp.on('data'... is mandatory for resp.on('end'... to happen
+            resp.on("data", function (chunk) {});
             resp.on('end', () => {
                 console.log('request sent')
             });
-
         }).on("error", (err) => {
-            console.log("Error: " + err.message);
+            console.log("Request Error: " + err.message);
         });
         nbPorteOuverte++;
         console.log("la porte s'est ouverte " + nbPorteOuverte + " fois")
     });
 });
 console.log("connecting porte-loco")
+
