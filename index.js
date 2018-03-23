@@ -9,14 +9,14 @@ board.on("ready", function () {
         button: button
     });
     let nbPorteOuverte = 0;
-    console.log(config.remoteUrl);
     button.on("up", function () {
         http.get({
             host: config.remoteHost,
             path: encodeURI('index.php?date=' + new Date())
         }, (resp) => {
             //resp.on('data'... is mandatory for resp.on('end'... to happen
-            resp.on("data", function (chunk) {});
+            resp.on("data", function (chunk) {
+            });
             resp.on('end', () => {
                 console.log('request sent')
             });
@@ -24,8 +24,8 @@ board.on("ready", function () {
             console.log("Request Error: " + err.message);
         });
         nbPorteOuverte++;
-        console.log("la porte s'est ouverte " + nbPorteOuverte + " fois")
+        console.log("la porte s'est ouverte " + nbPorteOuverte + " fois");
     });
 });
-console.log("connecting porte-loco")
+console.log("connecting porte-loco");
 
