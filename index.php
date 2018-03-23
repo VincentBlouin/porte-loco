@@ -33,6 +33,7 @@ print_r($redis);
 print_r(
     $redis->lpop("doorDates")
 );
+echo "fin résultats"
 ?>
 </body>
 </html>
