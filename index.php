@@ -19,7 +19,17 @@ try {
 if (isset($_GET["date"])) {
     $redis->rpush("doorDates", htmlspecialchars($_GET["date"]));
     header("HTTP/1.1 200 OK");
-} else {
-    echo "résultats";
-    echo $redis->lpop("doorDates");
+    die();
 }
+?>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+<?php
+echo "résultats";
+echo $redis->lpop("doorDates");
+?>
+</body>
+</html>
