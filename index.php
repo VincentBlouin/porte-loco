@@ -20,5 +20,6 @@ try {
 if (isset($_GET["date"])) {
     $redis->rpush("doorDates", htmlspecialchars($_GET["date"]));
 } else {
+    echo "résultats";
     echo $redis->lpop("doorDates");
 }
