@@ -28,19 +28,3 @@ board.on("ready", function () {
     });
 });
 console.log("connecting porte-loco");
-
-console.log(encodeURI('/index.php?date=' + new Date()));
-
-// http.get({
-//     host: config.remoteHost,
-//     path: encodeURI('/index.php?date=' + new Date())
-// }, (resp) => {
-//     //resp.on('data'... is mandatory for resp.on('end'... to happen
-//     resp.on("data", function (chunk) {
-//     });
-//     resp.on('end', () => {
-//         console.log('request sent')
-//     });
-// }).on("error", (err) => {
-//     console.log("Request Error: " + err.message);
-// });
