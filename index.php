@@ -45,7 +45,7 @@ if (isset($_GET["date"])) {
                                 class="elevation-1"
                         >
                             <template slot="items" slot-scope="props">
-                                <td>{{ props.index}}</td>
+                                <td>{{ dates.length - props.index}}</td>
                                 <td>
                                     {{props.item.time}}
                                 </td>
