@@ -30,8 +30,11 @@ if (isset($_GET["date"])) {
 <div id="content"></div>
 <script>
     var dates = <?php echo json_encode($redis->lrange("doorDates", 0, -1))?>;
-    console.log(dates);
-    debugger;
+    var html = "";
+    dates.forEach(function(date){
+        html += date + "<br>"
+    });
+    document.getElementById("content").innerHTML = html
 </script>
 </body>
 </html>
