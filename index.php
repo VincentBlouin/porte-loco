@@ -46,7 +46,7 @@ if (isset($_GET["date"])) {
                         >
                             <template slot="items" slot-scope="props">
                                 <td>{{ props.index}}</td>
-                                <td>props.item.time</td>
+                                <td>{{props.item.time}}</td>
                             </template>
                         </v-data-table>
                     </v-flex>
