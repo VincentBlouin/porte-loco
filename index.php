@@ -31,7 +31,9 @@ if (isset($_GET["date"])) {
 <script>
     var dates = <?php echo json_encode($redis->lrange("doorDates", 0, -1))?>;
     var html = "";
-    dates.forEach(function(date){
+    dates.sort(function(a, b){
+        return new Date(b).getTime() - new Date(a).getTime()
+    }).forEach(function(date){
         html += date + "<br>"
     });
     document.getElementById("content").innerHTML = html
