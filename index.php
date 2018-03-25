@@ -27,10 +27,11 @@ if (isset($_GET["date"])) {
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
 <body>
-<?php
-
-echo json_encode($redis->lrange("doorDates", 0, -1))
-
-?>
+<div id="content"></div>
+<script>
+    var dates = <?php echo json_encode($redis->lrange("doorDates", 0, -1))?>;
+    console.log(dates);
+    debugger;
+</script>
 </body>
 </html>
