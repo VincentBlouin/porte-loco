@@ -29,7 +29,7 @@ if (isset($_GET["date"])) {
 <body>
 <?php
 print_r(
-    $redis->lrange("doorDates", 0, -1)
+    $redis->rrange("doorDates", 0, -1)
 );
 ?>
 </body>
