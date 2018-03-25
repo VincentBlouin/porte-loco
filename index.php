@@ -43,6 +43,7 @@ if (isset($_GET["date"])) {
                                 :items="dates"
                                 hide-actions
                                 class="elevation-1"
+                                :pagination.sync="pagination"
                         >
                             <template slot="items" slot-scope="props">
                                 <td>{{ dates.length - props.index}}</td>
@@ -76,6 +77,11 @@ if (isset($_GET["date"])) {
     new Vue({
         el: '#app',
         data: {
+            pagination: {
+                sortBy: 'time',
+                descending: true,
+                rowsPerPage: -1
+            },
             headers: [
                 {
                     text: 'Index',
