@@ -69,7 +69,7 @@ if (isset($_GET["date"])) {
     dates.sort(function (a, b) {
         return a.date.getTime() - b.date.getTime()
     }).forEach(function (date) {
-        date.time = moment(date.date).format('DD MMMM YYYY, HH:mm:ss');
+        date.time = moment(date.date).format('DD MMMM, HH:mm:ss');
     });
 </script>
 <script>
