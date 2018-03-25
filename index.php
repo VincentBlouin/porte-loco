@@ -55,19 +55,15 @@ if (isset($_GET["date"])) {
         </v-content>
     </v-app>
 </div>
-<div id="content"></div>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
 <script>
     var dates = <?php echo json_encode($redis->lrange("doorDates", 0, -1))?>;
-    var html = "";
     dates.sort(function (a, b) {
         return new Date(b).getTime() - new Date(a).getTime()
     }).forEach(function (date) {
-        date.time = moment(date).format('MMMM Do YYYY, hh:mm:ss');
-        html += date + "<br>"
+        date.time = moment(date).format('DD MMMM YYYY, hh:mm:ss');
     });
-    // document.getElementById("content").innerHTML = html
 </script>
 <script>
     new Vue({
@@ -80,7 +76,7 @@ if (isset($_GET["date"])) {
                 },
                 {
                     text: 'Jour',
-                    value: ''
+                    value: 'time'
                 },
             ],
             dates: dates
