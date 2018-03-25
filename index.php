@@ -60,9 +60,13 @@ if (isset($_GET["date"])) {
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
 <script>
-    var dates = <?php echo json_encode($redis->lrange("doorDates", 0, -1))?>;
-    dates.sort(function (a, b) {
-        return new Date(b).getTime() - new Date(a).getTime()
+    var datesStr = <?php echo json_encode($redis->lrange("doorDates", 0, -1))?>;
+    var dates = datesStr.map(function (dateStr) {
+        return {
+            date: new Date(dateStr)
+        }
+    }).sort(function (a, b) {
+        return a.date.getTime() - b.date.getTime()
     }).forEach(function (date) {
         date.time = moment(date).format('DD MMMM YYYY, hh:mm:ss');
     });
