@@ -28,9 +28,9 @@ if (isset($_GET["date"])) {
 </head>
 <body>
 <?php
-print_r(
-    $redis->rrange("doorDates", 0, -1)
-);
+
+echo json_encode($redis->lrange("doorDates", 0, -1))
+
 ?>
 </body>
 </html>
