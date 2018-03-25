@@ -77,7 +77,7 @@ if (isset($_GET["date"])) {
                 {
                     text: 'Index',
                     value: ''
-                }
+                },
                 {
                     text: 'Jour',
                     value: ''
