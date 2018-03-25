@@ -17,7 +17,7 @@ try {
     die($e->getMessage());
 }
 if (isset($_GET["date"])) {
-    $redis->rpush("doorDates", $_GET["date"]);
+    $redis->lpush("doorDates", $_GET["date"]);
     header("HTTP/1.1 200 OK");
     die();
 }
@@ -25,18 +25,46 @@ if (isset($_GET["date"])) {
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/locale/fr-ca.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
+<div id="app">
+    <v-app>
+        <v-content>
+            <v-container>
+                <v-layout row wrap>
+                    <v-flex md12>
+                        {{dates}}
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </v-content>
+    </v-app>
+</div>
 <div id="content"></div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
 <script>
     var dates = <?php echo json_encode($redis->lrange("doorDates", 0, -1))?>;
     var html = "";
-    dates.sort(function(a, b){
+    dates.sort(function (a, b) {
         return new Date(b).getTime() - new Date(a).getTime()
-    }).forEach(function(date){
+    }).forEach(function (date) {
         html += date + "<br>"
     });
-    document.getElementById("content").innerHTML = html
+    // document.getElementById("content").innerHTML = html
+</script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            dates: dates
+        }
+    })
 </script>
 </body>
 </html>
