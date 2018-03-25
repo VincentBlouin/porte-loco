@@ -38,7 +38,17 @@ if (isset($_GET["date"])) {
             <v-container>
                 <v-layout row wrap>
                     <v-flex md12>
-                        {{dates}}
+                        <v-data-table
+                                :headers="headers"
+                                :items="dates"
+                                hide-actions
+                                class="elevation-1"
+                        >
+                            <template slot="items" slot-scope="props">
+                                <td>{{ props.index}}</td>
+                                <td>props.item.time</td>
+                            </template>
+                        </v-data-table>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -54,6 +64,7 @@ if (isset($_GET["date"])) {
     dates.sort(function (a, b) {
         return new Date(b).getTime() - new Date(a).getTime()
     }).forEach(function (date) {
+        date.time = moment(date).format('MMMM Do YYYY, hh:mm:ss');
         html += date + "<br>"
     });
     // document.getElementById("content").innerHTML = html
@@ -62,6 +73,16 @@ if (isset($_GET["date"])) {
     new Vue({
         el: '#app',
         data: {
+            headers: [
+                {
+                    text: 'Index',
+                    value: ''
+                }
+                {
+                    text: 'Jour',
+                    value: ''
+                },
+            ],
             dates: dates
         }
     })
