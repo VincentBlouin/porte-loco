@@ -1,0 +1,10 @@
+{
+  "name": "porte-loco",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "johnny-five": "^1.4.0"
+  }
+}

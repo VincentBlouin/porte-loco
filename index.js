@@ -1,7 +1,7 @@
 const five = require("johnny-five");
 const board = new five.Board();
-const http = require('http');
-const config = require('./config.json');
+//const http = require('http');
+//const config = require('./config.json');
 board.on("ready", function () {
     console.log("Board ready at " + new Date());
     const button = new five.Button(2);
@@ -10,19 +10,19 @@ board.on("ready", function () {
     });
     let nbPorteOuverte = 0;
     button.on("up", function () {
-        http.get({
-            host: config.remoteHost,
-            path: encodeURI('/index.php?date=' + new Date())
-        }, (resp) => {
-            //resp.on('data'... is mandatory for resp.on('end'... to happen
-            resp.on("data", function (chunk) {
-            });
-            resp.on('end', () => {
-                console.log('request sent')
-            });
-        }).on("error", (err) => {
-            console.log("Request Error: " + err.message);
-        });
+        // http.get({
+        //     host: config.remoteHost,
+        //     path: encodeURI('/index.php?date=' + new Date())
+        // }, (resp) => {
+        //     //resp.on('data'... is mandatory for resp.on('end'... to happen
+        //     resp.on("data", function (chunk) {
+        //     });
+        //     resp.on('end', () => {
+        //         console.log('request sent')
+        //     });
+        // }).on("error", (err) => {
+        //     console.log("Request Error: " + err.message);
+        // });
         nbPorteOuverte++;
         console.log("la porte s'est ouverte " + nbPorteOuverte + " fois");
     });
