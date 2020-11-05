@@ -38,6 +38,7 @@ if (isset($_GET["date"])) {
                                 :items="dates"
                                 class="elevation-1"
                                 :options="pagination"
+                                :search=search
 
                         >
                             <template slot="items" slot-scope="props">
@@ -78,6 +79,7 @@ if (isset($_GET["date"])) {
         el: '#app',
         vuetify: new Vuetify(),
         data: {
+            search:'',
             pagination: {
                 sortBy: ['time'],
                 sortDesc: [true],
