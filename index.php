@@ -1,17 +1,17 @@
 <?php
-require "predis/autoload.php";
+require "predis/src/Autoloader.php";
 Predis\Autoloader::register();
 try {
     $redis = new Predis\Client();
 
     // This connection is for a remote server
-    /*
-        $redis = new PredisClient(array(
-            "scheme" => "tcp",
-            "host" => "153.202.124.2",
-            "port" => 6379
-        ));
-    */
+
+    $redis = new PredisClient(array(
+        "scheme" => "tcp",
+        "host" => "127.0.0.1",
+        "port" => 6379
+    ));
+
 } catch (Exception $e) {
     header("HTTP/1.1 500 INTERNAL ERROR");
     die($e->getMessage());
