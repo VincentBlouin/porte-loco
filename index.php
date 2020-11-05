@@ -64,7 +64,7 @@ if (isset($_GET["date"])) {
     });
     let index = 0;
     dates.sort(function (a, b) {
-        return a.date.getTime() - b.date.getTime()
+        return b.date.getTime() - a.date.getTime()
     }).forEach(function (date) {
         date.time = moment(date.date).format('DD MMMM, HH:mm:ss');
         date.doorIndex = dates.length - index;
