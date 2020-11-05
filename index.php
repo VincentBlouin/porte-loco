@@ -36,7 +36,6 @@ if (isset($_GET["date"])) {
                         <v-data-table
                                 :headers="headers"
                                 :items="dates"
-                                hide-default-footer
                                 class="elevation-1"
                                 :options="pagination"
                         >
