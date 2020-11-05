@@ -11,6 +11,7 @@ board.on("ready", function () {
     button.on("up", function () {
         http.get({
             host: "127.0.0.1",
+            port: "9005",
             path: encodeURI('/index.php?date=' + new Date())
         }, (resp) => {
             //resp.on('data'... is mandatory for resp.on('end'... to happen
