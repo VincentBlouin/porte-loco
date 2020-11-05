@@ -71,6 +71,7 @@ if (isset($_GET["date"])) {
 <script>
     new Vue({
         el: '#app',
+        vuetify: new Vuetify(),
         data: {
             pagination: {
                 sortBy: 'time',
