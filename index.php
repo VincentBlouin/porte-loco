@@ -84,7 +84,7 @@ if (isset($_GET["date"])) {
             headers: [
                 {
                     text: 'Index',
-                    value: ''
+                    value: 'doorIndex'
                 },
                 {
                     text: 'Jour',
