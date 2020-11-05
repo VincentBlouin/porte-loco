@@ -38,18 +38,14 @@ if (isset($_GET["date"])) {
                                 :items="dates"
                                 class="elevation-1"
                                 :options="pagination"
-                                dark
+
                         >
                             <template slot="items" slot-scope="props">
                                 <td>
-                                    <span class="white--text">
-                                        {{props.item.doorIndex}}
-                                    </span>
+                                    {{props.item.doorIndex}}
                                 </td>
                                 <td>
-                                    <span class="white--text">
-                                        {{props.item.time}}
-                                    </span>
+                                    {{props.item.time}}
                                 </td>
                             </template>
                         </v-data-table>
