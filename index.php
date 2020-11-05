@@ -29,16 +29,16 @@ if (isset($_GET["date"])) {
 <body>
 <div id="app">
     <v-app>
-        <v-content>
+        <v-main>
             <v-container>
                 <v-layout row wrap>
                     <v-flex md12>
                         <v-data-table
                                 :headers="headers"
                                 :items="dates"
-                                hide-actions
+                                hide-default-footer
                                 class="elevation-1"
-                                :pagination.sync="pagination"
+                                :options="pagination"
                         >
                             <template slot="items" slot-scope="props">
                                 <td>{{ dates.length - props.index}}</td>
@@ -74,8 +74,8 @@ if (isset($_GET["date"])) {
         vuetify: new Vuetify(),
         data: {
             pagination: {
-                sortBy: 'time',
-                descending: true,
+                sortBy: ['time'],
+                sortDesc: [true],
                 rowsPerPage: -1
             },
             headers: [
