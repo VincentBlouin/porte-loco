@@ -41,7 +41,7 @@ if (isset($_GET["date"])) {
                                 :options="pagination"
                         >
                             <template slot="items" slot-scope="props">
-                                <td>{{ dates.length - props.index}}</td>
+                                <td>{{props.item.index}}</td>
                                 <td>
                                     {{props.item.time}}
                                 </td>
@@ -62,10 +62,13 @@ if (isset($_GET["date"])) {
             date: new Date(dateStr)
         }
     });
+    let index = 0;
     dates.sort(function (a, b) {
         return a.date.getTime() - b.date.getTime()
     }).forEach(function (date) {
         date.time = moment(date.date).format('DD MMMM, HH:mm:ss');
+        date.index = dates.length - index;
+        index++;
     });
 </script>
 <script>
