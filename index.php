@@ -33,23 +33,36 @@ if (isset($_GET["date"])) {
             <v-container>
                 <v-layout row wrap>
                     <v-flex md12>
-                        <v-data-table
-                                :headers="headers"
-                                :items="dates"
-                                class="elevation-1"
-                                :options="pagination"
-                                :search=search
+                    <v-card>
+                          <v-card-title>
+                              <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                              ></v-text-field>
+                            </v-card-title>
+                            <v-card-text>
+                                <v-data-table
+                                        :headers="headers"
+                                        :items="dates"
+                                        class="elevation-1"
+                                        :options="pagination"
+                                        :search=search
 
-                        >
-                            <template slot="items" slot-scope="props">
-                                <td>
-                                    {{props.item.doorIndex}}
-                                </td>
-                                <td>
-                                    {{props.item.time}}
-                                </td>
-                            </template>
-                        </v-data-table>
+                                >
+                                    <template slot="items" slot-scope="props">
+                                        <td>
+                                            {{props.item.doorIndex}}
+                                        </td>
+                                        <td>
+                                            {{props.item.time}}
+                                        </td>
+                                    </template>
+                                </v-data-table>
+                            </v-card-text>
+                        </v-card>
                     </v-flex>
                 </v-layout>
             </v-container>
