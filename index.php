@@ -2,7 +2,7 @@
 require "predis/src/Autoloader.php";
 Predis\Autoloader::register();
 try {
-    $redisClient = new Predis\Client([
+    $redis = new Predis\Client([
      'scheme' => 'tcp',
      'host'   => '127.0.0.1',
      'port'   => 6379
