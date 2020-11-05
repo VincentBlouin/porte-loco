@@ -1,7 +1,6 @@
 const five = require("johnny-five");
 const board = new five.Board();
 const http = require('http');
-//const config = require('./config.json');
 board.on("ready", function () {
     console.log("Board ready at " + new Date());
     const button = new five.Button(2);
@@ -11,7 +10,7 @@ board.on("ready", function () {
     let nbPorteOuverte = 0;
     button.on("up", function () {
         http.get({
-            host: config.remoteHost,
+            host: "127.0.0.1",
             path: encodeURI('/index.php?date=' + new Date())
         }, (resp) => {
             //resp.on('data'... is mandatory for resp.on('end'... to happen
