@@ -106,7 +106,7 @@ if (isset($_GET["date"])) {
                 },
                 {
                     text: 'Jour',
-                    value: 'date'
+                    value: 'time'
                 },
             ],
             dates: dates
