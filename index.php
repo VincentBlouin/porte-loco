@@ -57,7 +57,7 @@ if (isset($_GET["date"])) {
                                             {{props.item.doorIndex}}
                                         </td>
                                         <td>
-                                            {{props.item.time}}
+                                            {{props.item.formatted}}
                                         </td>
                                     </template>
                                 </v-data-table>
@@ -82,7 +82,8 @@ if (isset($_GET["date"])) {
     dates.sort(function (a, b) {
         return b.date.getTime() - a.date.getTime()
     }).forEach(function (date) {
-        date.time = moment(date.date).format('DD MMMM YYYY, HH:mm:ss');
+        date.time = date.getTime();
+        date.formatted = moment(date.date).format('DD MMMM YYYY, HH:mm:ss');
         date.doorIndex = dates.length - index;
         index++;
     });
