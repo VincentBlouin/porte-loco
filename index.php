@@ -106,8 +106,10 @@ if (isset($_GET["date"])) {
                 },
                 {
                     text: 'Jour',
-                    text:'formatted',
-                    value: 'time'
+                    value: 'formatted',
+                    sort:function(a,b){
+                        return b.date.getTime() - a.date.getTime()
+                    }
                 },
             ],
             dates: dates
