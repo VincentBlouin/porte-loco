@@ -27,4 +27,4 @@ board.on("ready", function () {
         console.log("la porte s'est ouverte " + nbPorteOuverte + " fois");
     });
 });
-console.log("connecting porte-loco");
+console.log("connecting porte-loco " + new Date());
